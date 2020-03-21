@@ -3,3 +3,4 @@
  */
 
 export * from './lib/publickey-angular.service';
+export * from './lib/publickey-angular.module';

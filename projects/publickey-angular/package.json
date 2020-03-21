@@ -1,11 +1,18 @@
 {
-  "name": "publickey-angular",
+  "name": "@mailchain/publickey-angular",
   "version": "0.0.1",
+  "description": "Mailchain Publickey - a service for resolving public keys via the Mailchain API for Angular",
+  "author": "Mailchain",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mailchain/publickey-angular.git"
+  },
   "peerDependencies": {
     "@angular/common": "^8.2.14",
     "@angular/core": "^8.2.14"
   },
   "dependencies": {
-    "@mailchain/http-helpers-angular": "0.0.4"
+    "@mailchain/http-helpers-angular": "^0.0.4"
   }
 }

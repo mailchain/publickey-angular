@@ -1,5 +1,63 @@
 # PublickeyAngular
 
+This package is an Angular service that helps query the Mailchain API public-key endpoint.
+
+## Installing
+
+```sh
+npm install @mailchain/publickey-angular --save
+```
+
+## Usage
+
+In your Angular `app.module.ts` file, import the `PublickeyAngularModule`:
+
+```ts
+
+import { PublickeyAngularModule } from '@mailchain/publickey-angular';
+
+@NgModule({
+  declarations: [
+    AppComponent
+    ...
+  ],
+  imports: [
+    ...
+    PublickeyAngularModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
+
+In an Angular component file, eg. `my-component.component.ts`, add the following:
+
+``` ts
+  // import the service
+  import { PublickeyService } from '@mailchain/publickey-angular';
+
+  // add to constructor
+  constructor(
+    private publickeyService: PublickeyService,
+  ) { }
+
+  // add to function and then execute logic in the callback
+  myFunction() {
+    const protocol = "ethereum" // change accordingly or use function params
+    const network = "ropsten" // change accordingly or use function params
+    const address = "0xd6d77865e128cd727526f45583d707a72eb56eb0" // change accordingly or use function params
+
+    const obs = this.publicKeyService.getPublicKeyFromAddress(address, protocol, network)
+
+    obs.subscribe(obs => {
+      console.log(obs['body']) // { "public-key": "0x69d908510e355beb1d5bf2df8129e5b6401e1969891e8016a0b2300739bbb00687055e5924a2fd8dd35f069dc14d8147aa11c1f7e2f271573487e1beeb2be9d0",   "public-key-encoding": "hex/0x-prefix",   "public-key-kind": "secp256k1",   "supported-encryption-types": [     "aes256cbc",     "noop"  ]}
+      console.log(obs['body']['public-key'])
+    })
+  }
+
+```
+
 This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.14.
 
 ## Code scaffolding
