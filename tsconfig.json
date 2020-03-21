@@ -17,7 +17,15 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "publickey-angular": [
+        "dist/publickey-angular"
+      ],
+      "publickey-angular/*": [
+        "dist/publickey-angular/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
